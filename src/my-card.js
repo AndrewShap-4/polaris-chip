@@ -19,6 +19,7 @@ export class MyCard extends LitElement {
     this.link = '#';
     this.button = 'Details';
     this.imageSrc = 'Image';
+    this.fancy = false;
   }
 
   static get styles() {
@@ -28,6 +29,13 @@ export class MyCard extends LitElement {
         justify-content: space-around; 
         flex-wrap: wrap; 
         margin: 20px;
+      }
+
+      :host([fancy]) {
+        display: block;
+        background-color: blue;
+        border: 5px solid black;
+        box-shadow: 20px 10px 10px purple;
       }
 
       .card {
@@ -51,14 +59,17 @@ export class MyCard extends LitElement {
       }
 
       a {
-        width: 200px;
-        height: 60px;
+        width: 70px;
+        height: 20px;
         padding: 10px;
+        margin: 20px;
         border: 2px solid black;
         border-radius: 8px;
         text-align: center;
         font-size: 20px;
-        background-color: #1eb300
+        background-color: #1eb300;
+        display: inline-block;
+        border-radius: 5px;
         }
 
       a:hover {
@@ -67,8 +78,9 @@ export class MyCard extends LitElement {
 
       .img {
         width: 300px;
-        height: 125px;
+        height: 175px;
         padding: 6px;
+        display: inline-block;
       }
     `;
   }
@@ -76,15 +88,27 @@ export class MyCard extends LitElement {
   render() {
     return html`
     <div class="card">
-    <img src="${this.imageSrc}" alt="Card Image"/>
-  <h1>
-    "${this.title}"
-  </h1>
-  <p>
-    ${this.description}
-  </p>
-  <a href="${this.link}">${this.button}</a>
-  </div>`;
+        <img class="img" src="${this.imageSrc}" alt="Card Image" />
+        <h1>${this.title}</h1>
+        <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+          <summary>Description</summary>
+          <div>
+            <slot>${this.description}</slot>
+          </div>
+        </details>
+        <a href="${this.link}">${this.button}</a>
+      </div>
+    `;
+  }
+
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
   }
 
   static get properties() {
@@ -94,6 +118,7 @@ export class MyCard extends LitElement {
       link: { type: String },
       button: { type: String },
       imageSrc: { type: String },
+      fancy: { type: Boolean, reflect: true}
     };
   }
 }
