@@ -25,7 +25,7 @@ export class MyCard extends LitElement {
   static get styles() {
     return css`
       :host {
-        display: inline-flex;
+        display: block;
         justify-content: space-around; 
         flex-wrap: wrap; 
         margin: 20px;
@@ -43,7 +43,7 @@ export class MyCard extends LitElement {
         border: 5px solid black;
         padding: 20px;
         margin: 20px;
-        height: 400px;
+        height: flex;
         background-color: lightgrey;
         text-align: center;
       }

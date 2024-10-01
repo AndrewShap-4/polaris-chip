@@ -34,11 +34,18 @@
   <h1>my-card</h1>
 
   <div class="document">
-    
-  <my-card fancy title = "Man Eats 100 Burgers" 
+
+  <my-card title = "Man Eats 100 Burgers" 
   description = "This guy just ate a record-setting 100 burgers in only 10 minutes! He is an absolute unit and cannot be stopped. Joey Chestnut watch out. Burger man is coming."
-  link = "https://hax.psu.edu" button="Details"
-  imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEsvgTDDkD6BN6_Gb26FWcI2oS9AEpBe4mvw&s"></my-card>
+  link = "https://hax.psu.edu" button="Details" 
+  imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEsvgTDDkD6BN6_Gb26FWcI2oS9AEpBe4mvw&s">
+    <multiple-choice randomize="" typeof="oer:Assessment" resource="#6400762a-2b00-60d6-9410-db72d033c61a" prefix="oer:http://oerschema.org/ schema:http://schema.org/ dc:http://purl.org/dc/terms/ foaf:http://xmlns.com/foaf/0.1/ cc:http://creativecommons.org/ns# bib:http://bib.schema.org " correct-text="Let's go VGK!" incorrect-text="NOOOoooo!!!" check-label="Check answer" reset-label="Reset" correct-icon="icons:thumb-up" incorrect-icon="icons:thumb-down" quiz-name="default" question="Who last won the NHL Stanley Cup?" single-option="" max-attempts="0">
+      <input type="checkbox" value="Seattle Kraken" role="textbox">
+      <input type="checkbox" value="Vegas Golden Knights">
+      <input type="checkbox" value="Florida Panthers" correct="correct">
+      <input type="checkbox" value="Edmonton Oilers">
+      </multiple-choice>
+    </my-card>
   
   <my-card title = "Bird Man" 
   description = "When the nuclear power plant blew up, dangerous radiation spread throughout the entire town. Most peole died, but some people lived and mutated..."
@@ -61,10 +68,11 @@
   imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9A2cSY4XXL47pAKsNAy2HTDNasuKHzPUP1A&s"></my-card>
   </div>
 
-
+    
   
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
+  <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/multiple-choice/multiple-choice.js"></script>
 </body>
 
 </html>
